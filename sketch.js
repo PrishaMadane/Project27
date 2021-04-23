@@ -5,6 +5,8 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 var bobObject1, bobObject2, bobObject3, bobObject4, bobObject5;
+var rope1,rope2,rope3,rope4,rope5;
+var engine,world;
 
 function preload()
 {
@@ -24,7 +26,7 @@ function setup() {
 	bobObject4= new Bob(440,600,40);
 	bobObject5= new Bob(520,600,40);
 	roofObject = new Roof(400,150,800,30);
-	bobDiameter=30;
+	bobDiameter=80;
 	rope1=new Rope(bobObject1.body, roofObject.body, -bobDiameter*2,0);
 	rope2=new Rope(bobObject2.body, roofObject.body, -bobDiameter*1,0);
 	rope3=new Rope(bobObject3.body, roofObject.body, 0,0);
@@ -55,7 +57,3 @@ function draw() {
   drawSprites();
  
 }
-function keyPressed(){
-	if(keyCode===UP_ARROW){
-	  Matter.Body.applyForce(rope.body,rope.body.position,{x:75,y:-75});
-	}}
