@@ -1,24 +1,20 @@
-class Bob {
-    constructor(x,y,r){
+lass Bob {
+    constructor(x,y){
         var options={
-            isStatic:true,
+            isStatic:false,
+            restitution: 1,
+            friction: 0,
+            density: 7.8,
         }
-        this.x=x;
-        this.y=y;
-        this.r=r;
-        this.body= Bodies.circle(x,y,r,options);
+        this.body= Bodies.circle(x,y,25,options);
         World.add(world,this.body);
     }  
     
     display(){
-
-        var pos = this.body.position;
-        
         push();
-        translate(pos.x,pos.y);
-        fill("blue");
         ellipseMode(RADIUS);
-        ellipse(0,0,this.r,this.r);
+        fill(254,0,255);
+        ellipse(this.body.position.x,this.body.position.y,25,25);
         pop();
     }
 }
